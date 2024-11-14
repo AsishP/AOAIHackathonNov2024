@@ -4,10 +4,16 @@
 1. Activate your virtual environment using the scripts below
 
     a. Remove the virtual environment
+    
     ** For Linux, To delete the virtual environment, use the following command: **
+    ```bash
     rm -rf venv
+    ```
+
     ** For Windows, **
-    Remove-Item -Recurse -Force .venv 
+    ```powershell
+    Remove-Item -Recurse -Force .venv
+    ```
     
     b. Install the Virtual Environment
     python -m venv .venv
@@ -32,8 +38,21 @@
 
 **Lab 01 - Semantic Chat with Vectorised Information**
 1. Create a database called "sqldemo-websessions-chat" in the Database Server already created (set it to General Purpose Serverless to minimize cost)
-2. Create a new connection in Azure AI Studio pointing to the new database
-3. Run the scripts in SQL folder under Semantic Kernel in order of 010 - 100 files using Azure AI Data Studio
+2. Create tables, stored procedures and upload data using the steps below.
+    a. Install the extension if not done so [C# Dev kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
+    b. In PowerShell Terminal run cd .\SemanticKernel\
+    c. Run dotnet run deploy
+    **Note** If there are errors during the deploy process and related to Message timeout or 100-sample-data-create-embedding.sql, then run the below queries. If rows exist, then we are good.
+    ```sql
+    SELECT TOP (1000) * FROM [web].[sessions]
+    SELECT TOP (1000) * FROM [web].[sessions_abstracts_embeddings]
+    SELECT TOP (1000) * FROM [web].[sessions_details_embeddings]
+    ```
+    
+**Note** If the above steps fail then do the below
+    a. Create a new connection in Azure AI Studio pointing to the new database
+    b. Run the scripts in SQL folder under Semantic Kernel in order of 010 - 100 files using Azure AI Data Studio
+
 4. Create a .env file
     a. Locate the .env.sample file
     b. Rename it to .env
@@ -43,7 +62,7 @@
     b. Rename to run.bat
     c. Replace the <azure entra tenant id> with the Tenant ID in Microsoft Entra
 6. Run the batch file
-    a. In PowerShell Terminal run cd .\SemanticKernel\
+    a. In PowerShell Terminal run cd .\SemanticKernel\ (if not already in there)
     b. Then run the kernel using command "Start-Process -FilePath "..\run.bat" -Wait"
     c. Login with your Azure Account where the resources are hosted for Search and Azure Open AI
     d. Hit enter after Login is completed

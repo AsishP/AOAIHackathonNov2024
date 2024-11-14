@@ -1,7 +1,7 @@
 -- This script creates the necessary security objects for the Semantic Kernel to work properly and set the OpenAI URL and API key.
 
-declare @OPENAI_URL nvarchar(255) = 'https://***.openai.azure.com';
-declare @OPENAI_KEY nvarchar(255) = '**<api-key>**';
+-- declare @OPENAI_URL nvarchar(255) = 'https://***.openai.azure.com';
+-- declare @OPENAI_KEY nvarchar(255) = '**<api-key>**';
 
 if not exists(select * from sys.symmetric_keys where [name] = '##MS_DatabaseMasterKey##')
 begin

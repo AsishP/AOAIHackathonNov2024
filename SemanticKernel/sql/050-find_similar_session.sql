@@ -47,4 +47,5 @@ where
     distance <= 0.75
 order by 
     distance
+go
 

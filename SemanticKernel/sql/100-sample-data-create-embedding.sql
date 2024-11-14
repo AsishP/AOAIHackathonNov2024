@@ -95,13 +95,7 @@ VALUES
    "language": "English",  
    "level": 3  
  }') AS NVARCHAR(MAX))  
-);  
-go
-
-
--- This query creates entry into Web.sessions from the data provided.
-INSERT INTO [web].[sessions] (title, abstract, external_id, details)  
-VALUES   
+),
 ('Copilot implementation essentials',   
 'Deliver AI value quickly with our guide for Copilot for Microsoft 365 implementations. Ensure secure, efficient rollouts with data governance and user support. This session is enriched by customer success stories.',   
 'BRK410-AU',   
@@ -408,3 +402,4 @@ end
 
 close session_cursor;
 deallocate session_cursor;
+go
