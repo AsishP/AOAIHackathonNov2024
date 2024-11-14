@@ -1,0 +1,5 @@
+echo off
+echo Logging into Azure...
+call az login --tenant <azure entra tenant id> --output none
+echo Login completed
+call dotnet run chat

@@ -1,0 +1,5 @@
+.env
+.bat
+.venv
+SemanticKernel/run.bat
+SQL-SearchChat/__pycache__/chat.cpython-311.pyc
